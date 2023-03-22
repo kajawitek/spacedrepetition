@@ -2,6 +2,11 @@
 
 puts '# Creating Users'
 3.times do |u|
-  user = User.where(email: "email#{u + 1}@example.com").first_or_create!(password: 'password')
+  user = FactoryBot.create(:user)
   puts user.email
+end
+
+6.times do |s|
+  subject = FactoryBot.create(:subject)
+  puts subject.title
 end
