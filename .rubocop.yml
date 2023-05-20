@@ -86,3 +86,6 @@ RSpec/MultipleMemoizedHelpers:
 Layout/EmptyLineAfterGuardClause:
   Exclude:
     - 'app/services/*'
+
+Rails/I18nLocaleTexts:
+  Enabled: false
