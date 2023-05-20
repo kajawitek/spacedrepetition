@@ -1,0 +1,23 @@
+<h1>My subjects</h1>
+
+  <table class='table'>
+    <thead class="table-dark">
+      <tr>
+        <th>Subject title</th>
+        <th>Subject description</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% subjects.each do |subject| %>
+        <tr>
+          <td><%= subject.title %></td>
+          <td><%= subject.description %></td>
+        </tr>
+      <% end %>
+
+    </tbody>
+</table>
+
+<%= link_to "New Subject", new_subject_path %>
