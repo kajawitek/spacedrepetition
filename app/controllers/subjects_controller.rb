@@ -15,7 +15,7 @@ class SubjectsController < ApplicationController
     subject = Subject.new(subject_params)
     subject.user = current_user
     if subject.save
-      redirect_to subjects_path
+      redirect_to subjects_path, notice: 'Subject was successfully created.'
     else
       render :new, locals: { subject: subject }, status: :unprocessable_entity
     end
