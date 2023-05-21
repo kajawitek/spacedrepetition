@@ -11,6 +11,10 @@ class SubjectsController < ApplicationController
     render :new, locals: { subject: Subject.new }
   end
 
+  def edit
+    render :edit, locals: { subject: Subject.find(params[:id]) }
+  end
+
   def create
     subject = Subject.new(subject_params)
     subject.user = current_user
@@ -19,10 +23,6 @@ class SubjectsController < ApplicationController
     else
       render :new, locals: { subject: subject }, status: :unprocessable_entity
     end
-  end
-
-  def edit
-    render :edit, locals: { subject: Subject.find(params[:id]) }
   end
 
   def update
