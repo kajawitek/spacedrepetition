@@ -21,6 +21,25 @@ class SubjectsController < ApplicationController
     end
   end
 
+  def edit
+    render :edit, locals: { subject: Subject.find(params[:id]) }
+  end
+
+  def update
+    subject = Subject.find(params[:id])
+    if subject.update(subject_params)
+      redirect_to subjects_path, notice: 'Subject was successfully updated.'
+    else
+      render :edit, locals: { subject: subject }, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    subject = Subject.find(params[:id])
+    subject.destroy
+    redirect_to subjects_path, notice: 'Subject was successfully destroyed.'
+  end
+
   private
 
   def subject_params

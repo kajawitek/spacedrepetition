@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'home#index'
 
-  resources :subjects, only: %i[index new create]
+  resources :subjects, only: %i[index new create edit update destroy]
 end
