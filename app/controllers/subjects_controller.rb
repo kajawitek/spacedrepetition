@@ -12,6 +12,7 @@ class SubjectsController < ApplicationController
   end
 
   def edit
+    authorize Subject.find(params[:id])
     render :edit, locals: { subject: Subject.find(params[:id]) }
   end
 
@@ -27,6 +28,7 @@ class SubjectsController < ApplicationController
 
   def update
     subject = Subject.find(params[:id])
+    authorize subject
     if subject.update(subject_params)
       redirect_to subjects_path, notice: 'Subject was successfully updated.'
     else
@@ -36,6 +38,7 @@ class SubjectsController < ApplicationController
 
   def destroy
     subject = Subject.find(params[:id])
+    authorize subject
     subject.destroy
     redirect_to subjects_path, notice: 'Subject was successfully destroyed.'
   end
