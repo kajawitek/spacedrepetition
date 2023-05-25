@@ -28,7 +28,7 @@ RSpec.describe 'Subjects' do
 
   it 'updates subject' do
     user = create(:user)
-    create(:subject)
+    create(:subject, user: user)
 
     login_as user, scope: :user
 
@@ -48,7 +48,7 @@ RSpec.describe 'Subjects' do
 
   it 'destroys subject' do
     user = create(:user)
-    create(:subject)
+    create(:subject, user: user)
 
     login_as user, scope: :user
 
